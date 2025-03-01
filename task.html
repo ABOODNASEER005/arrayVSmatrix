@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array vs Matrices</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Dark blue-green gradient */
+      color: white; /* White text */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    /* Navigation Menu */
+    nav {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffdd57; /* Warm yellow on hover */
+    }
+
+    /* Main Content */
+    h1 {
+      font-size: 3rem;
+      margin-top: 80px; /* Space for fixed navigation */
+      margin-bottom: 30px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      width: 90%;
+      max-width: 1200px;
+      gap: 20px; /* Space between sections */
+      margin-bottom: 60px; /* Space for footer */
+    }
+
+    .section {
+      background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent light background */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      width: 48%; /* Each section takes up roughly half the space */
+      animation: slideIn 1.5s ease-in-out;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: #ffdd57; /* Warm yellow for headings */
+      margin-bottom: 15px;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .section code {
+      background-color: rgba(255, 255, 255, 0.2); /* Light background for code */
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      color: #ffdd57; /* Warm yellow for code */
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+      padding: 10px 0;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #ffdd57; /* Warm yellow for links */
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .section {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .section h2 {
+        font-size: 1.5rem;
+      }
+
+      .section p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Menu -->
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="https://www.w3schools.com/python/numpy/default.asp" target="_blank">Learn About Arrays</a></li>
+      <li><a href="https://www.geeksforgeeks.org/numpy-matrix-python/?ref=header_outind" target="_blank">Learn About Matrices</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <h1>ARRAY VS MATRICES</h1>
+
+  <div class="container">
+    <!-- NumPy Array Section -->
+    <div class="section">
+      <h2>NumPy Arrays</h2>
+      <p><strong>Definition:</strong> A NumPy array (<code>numpy.ndarray</code>) is a versatile, n-dimensional array object that can represent vectors, matrices, and higher-dimensional tensors.</p>
+      <p><strong>Creation:</strong> Created using <code>np.array()</code>.</p>
+      <p><strong>Flexibility:</strong> Can have any number of dimensions (1D, 2D, 3D, etc.).</p>
+      <p><strong>Operations:</strong> Element-wise operations are the default. Matrix multiplication requires <code>np.dot()</code> or the <code>@</code> operator.</p>
+      <p><strong>Broadcasting:</strong> Supports broadcasting for operations on arrays of different shapes.</p>
+      <p><strong>Usage:</strong> Preferred for most numerical computations due to its flexibility and broader functionality.</p>
+    </div>
+
+    <!-- NumPy Matrix Section -->
+    <div class="section">
+      <h2>NumPy Matrices</h2>
+      <p><strong>Definition:</strong> A NumPy matrix (<code>numpy.matrix</code>) is a specialized 2D array specifically designed for linear algebra operations.</p>
+      <p><strong>Creation:</strong> Created using <code>np.matrix()</code>.</p>
+      <p><strong>Flexibility:</strong> Restricted to 2 dimensions only.</p>
+      <p><strong>Operations:</strong> The <code>*</code> operator performs matrix multiplication. Element-wise operations require <code>np.multiply()</code>.</p>
+      <p><strong>Broadcasting:</strong> Does not support broadcasting as comprehensively as arrays.</p>
+      <p><strong>Usage:</strong> Less commonly used today, as arrays are more general and flexible. The <code>numpy.matrix</code> class is largely deprecated.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>About Me: MY NAME IS  <strong>ABDULRHAMN NASEER</strong> Student at <strong>University of Baghdad, Al-Khwarizmi College, Department of Information and Communication</strong>, 19 years old, Second Grade.</p>
+  </footer>
+</body>
+</html>
